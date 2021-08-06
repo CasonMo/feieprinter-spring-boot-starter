@@ -1,8 +1,7 @@
 package com.cason.feiePrint.service;
 
 
-import com.cason.feiePrint.entity.FeieReq;
-import com.cason.feiePrint.entity.FeieResp;
+import com.cason.feiePrint.entity.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -11,11 +10,16 @@ import com.cason.feiePrint.entity.FeieResp;
  * Time: 0:13
  */
 public interface FeiePrintService {
-    FeieResp addPrinter(String snlist);
-    FeieResp print(FeieReq feieReq);
-    FeieResp printLabelMsg(FeieReq feieReq) throws Exception;
 
-    FeieResp queryOrderState(FeieReq feieReq, String orderid) throws Exception;
-    FeieResp queryOrderInfoByDate(FeieReq feieReq, String strdate) throws Exception;
-    FeieResp queryPrinterStatus(FeieReq feieReq) throws Exception;
+    FeieResp addPrinter(PrinterAddListFeieReq feieReq) throws Exception;
+
+    FeieResp printMsg(PrintMsgFeieReq feieReq) throws Exception;
+
+    FeieResp printLabelMsg(PrintLabelMsgFeieReq feieReq) throws Exception;
+
+    FeieResp queryOrderState(QueryOrderStateFeieReq feieReq) throws Exception;
+
+    FeieResp queryOrderInfoByDate(QueryOrderInfoByDateFeieReq feieReq) throws Exception;
+
+    FeieResp queryPrinterStatus(QueryPrinterStatusFeieReq feieReq) throws Exception;
 }

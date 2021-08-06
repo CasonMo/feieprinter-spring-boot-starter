@@ -8,13 +8,19 @@ package com.cason.feiePrint.entity;
  */
 
 public class FeieReq {
+    //飞鹅云后台注册用户名。
     private String user;
+    //当前UNIX时间戳，10位，精确到秒
     private long stime;
+//    //对参数 user+UKEY+stime拼接后（+号表示连接符）进行SHA1加密得到签名，加密后签名值为40位小写字符串。
+//    private String sig;
+    //请求的接口名称
     private String apiname;
-    private String sn;
+    //debug=1返回非json格式的数据。仅测试时候使用。
+    private String debug;
+
     private String uKey;
-    private String content;
-    private int times;
+
 
     public long getStime() {
         return System.currentTimeMillis()/1000;
@@ -27,10 +33,7 @@ public class FeieReq {
         this.user = user;
         this.stime = stime;
         this.apiname = apiname;
-        this.sn = sn;
         this.uKey = uKey;
-        this.content = content;
-        this.times = times;
     }
 
     public String getUser() {
@@ -53,13 +56,6 @@ public class FeieReq {
         this.apiname = apiname;
     }
 
-    public String getSn() {
-        return sn;
-    }
-
-    public void setSn(String sn) {
-        this.sn = sn;
-    }
 
     public String getUKey() {
         return uKey;
@@ -69,20 +65,11 @@ public class FeieReq {
         this.uKey = uKey;
     }
 
-    public String getContent() {
-        return content;
+    public String getDebug() {
+        return debug;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setDebug(String debug) {
+        this.debug = debug;
     }
-
-    public int getTimes() {
-        return times;
-    }
-
-    public void setTimes(int times) {
-        this.times = times;
-    }
-
 }
