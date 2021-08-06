@@ -13,7 +13,7 @@ apiname	必须	string	请求的接口名称：Open_printLabelMsg
 sn	必须	string	打印机编号
 ```
 
-###教程
+### 教程
 引入包依赖
 ```xml
         <dependency>
