@@ -49,7 +49,7 @@ sn	必须	string	打印机编号
 
     @Test
     public void printLabelMsg() throws Exception {
-        FeieReq feieReq = new FeieReq();
+        PrintLabelMsgFeieReq feieReq = new PrintLabelMsgFeieReq();
         feieReq.setContent(<content>);
         feieReq.setUser(<user>);
         feieReq.setUKey(<ukey>);
@@ -60,7 +60,7 @@ sn	必须	string	打印机编号
 
     @Test
     public void queryPrinterStatus() throws Exception {
-        FeieReq feieReq = new FeieReq();
+        QueryPrinterStatusFeieReq feieReq = new QueryPrinterStatusFeieReq();
         feieReq.setUser(<user>);
         feieReq.setUKey(<ukey>);
         feieReq.setSn(<sn>);
