@@ -45,6 +45,7 @@ public class FeiePrintServiceImpl implements FeiePrintService {
         if (addPrinterDtoList.isEmpty()) {
             throw new Exception("addPrinterDtoList不能为空");
         }
+        feieReq.setApiname("Open_printerAddlist");
         StringBuffer printerContentStringBuffer = new StringBuffer();
         //打印机编号SN(必填) # 打印机识别码KEY(必填) # 备注名称(选填) # 流量卡号码(选填)，多台打印机请换行（\n）添加新打印机信息，
         //316500010 # abcdefgh # 快餐前台 # 13688889999
@@ -58,7 +59,7 @@ public class FeiePrintServiceImpl implements FeiePrintService {
         }
         LinkedMultiValueMap<String, String> exMap = new LinkedMultiValueMap<>();
         exMap.add("printerContent",printerContentStringBuffer.toString());
-        return getPost(feieReq);
+        return getPost(feieReq,exMap);
     }
 
     @Override
@@ -70,7 +71,7 @@ public class FeiePrintServiceImpl implements FeiePrintService {
         if(feieReq.getTimes()!=0) {
             exMap.add("times", String.valueOf(feieReq.getTimes()));//打印联数
         }
-        return getPost(feieReq);
+        return getPost(feieReq,exMap);
     }
 
     @Override
@@ -82,7 +83,7 @@ public class FeiePrintServiceImpl implements FeiePrintService {
         if(feieReq.getTimes()!=0) {
             exMap.add("times", String.valueOf(feieReq.getTimes()));//打印联数
         }
-        return getPost(feieReq);
+        return getPost(feieReq,exMap);
     }
 
     @Override
@@ -107,7 +108,7 @@ public class FeiePrintServiceImpl implements FeiePrintService {
         feieReq.setApiname("Open_queryPrinterStatus");
         LinkedMultiValueMap<String, String> exMap = new LinkedMultiValueMap<>();
         exMap.add("sn",feieReq.getSn());
-        return getPost(feieReq);
+        return getPost(feieReq,exMap);
     }
 
     /**
