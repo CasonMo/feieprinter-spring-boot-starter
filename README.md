@@ -67,4 +67,20 @@ sn	必须	string	打印机编号
         FeieResp feieResp = feiePrintService.queryPrinterStatus(feieReq);
         Assert.assertEquals(0, feieResp.getRet());
     }
+    
+    @Test
+    public void testBindFieldToContentByMap() {
+            Map<String, String> map = new HashMap<>();
+            map.put("ORDER_SEQ", "test");
+            map.put("DISH_CURRENT", "test");
+            map.put("DISH_TOTAL", "test");
+            map.put("DELIVERY_ADDRESS", "test");
+            map.put("DISH_NAME", "test");
+            map.put("DISH_COUNT", "test");
+            map.put("CUSTOMER_NAME", "test");
+            map.put("CUSTOMER_PHONE", "test");
+            String content = "<DIRECTION>1</DIRECTION><TEXT x=\"9\" y=\"10\" font=\"12\" w=\"1\" h=\"2\" r=\"0\">##ORDER_SEQ#                                            #DISH_CURRENT#/#DISH_TOTAL#</TEXT><TEXT x='9' y='45' font='9' w='2' h='2' r='0'>#DELIVERY_ADDRESS#</TEXT><TEXT x='80' y='80' font='12' w='2' h='2' r='0'>#DISH_NAME#  #DISH_COUNT#</TEXT><TEXT x='9' y='180' font='12' w='1' h='1' r='0'>#CUSTOMER_NAME#       #CUSTOMER_PHONE#</TEXT>";
+            String contentWithBindData = FeieUtils.bindFieldToContentByMap(content, map);
+            System.out.println(contentWithBindData);
+    }
 ```
