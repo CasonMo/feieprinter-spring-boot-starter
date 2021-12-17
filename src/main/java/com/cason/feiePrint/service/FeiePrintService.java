@@ -22,4 +22,5 @@ public interface FeiePrintService {
     FeieResp queryOrderInfoByDate(QueryOrderInfoByDateFeieReq feieReq) throws Exception;
 
     FeieResp queryPrinterStatus(QueryPrinterStatusFeieReq feieReq) throws Exception;
+
 }
